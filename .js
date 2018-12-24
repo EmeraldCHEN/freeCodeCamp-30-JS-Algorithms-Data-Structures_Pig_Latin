@@ -64,6 +64,36 @@ function translatePigLatin3(str) {
 
 /*********    Solution #4    *************************************************************************************/
 
+function translatePigLatin4(str) {
+  let count = 0;
+  let strArr = [];
+  let tempChar; 
+
+  function isConsonant(char) {  // Check if the char is consonant using RegEx
+      return !/[aeiou]/.test(char);
+  }
+   
+  for(let i = 0; i < str.length; i++){ 
+      if(isConsonant(str.charAt(i))){    
+          count ++;
+      }
+  }
+  if(count === str.length){ // Handle words without vowels
+      return str.toLowerCase() + "ay";
+  }
+  if (!isConsonant(str.charAt(0))){ // if str starts with vowel
+      return str.toLowerCase() + "way";   // return initial str + "way" 
+  }else{
+      strArr = str.split("");    // if not - convert str to array
+  }
+  while (isConsonant(strArr[0])) {  
+      tempChar = strArr.shift(); // Shifts the first value from strArr and assigns it to tempChar
+      strArr.push(tempChar);     // Pushs all consonats to the end of strArr
+  }
+  // Convert strArr to string and concatenate "ay" at the end  
+  return strArr.join("").toLowerCase() +"ay";
+}
+
 
 
 // Retrieved from
