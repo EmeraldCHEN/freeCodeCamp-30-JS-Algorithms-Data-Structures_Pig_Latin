@@ -62,5 +62,9 @@ function translatePigLatin3(str) {
 
 
 
+/*********    Solution #4    *************************************************************************************/
+
+
+
 // Retrieved from
 // https://guide.freecodecamp.org/certifications/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/pig-latin/
