@@ -56,6 +56,7 @@ function translatePigLatin3(str) {
   function check(indice) {
       return ['a','i','u','e','o'].indexOf(str.charAt(indice)) === -1 ? check(indice + 1) : indice; // In case of consonants, check() calls itself on the next characters until finding the first vowel.
   }
+  // Concatenate with either that same chunk of removed string or 'w' accordingly, and then 'ay' regardless
   return str.slice(check(0)).concat((check(0) === 0 ? 'w' : str.substr(0, check(0))) + 'ay');
 }
 
