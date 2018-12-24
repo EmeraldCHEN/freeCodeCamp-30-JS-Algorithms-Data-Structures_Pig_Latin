@@ -49,6 +49,17 @@ function translatePigLatin2(str) {
 
 
 
+/*********    Solution #3    *************************************************************************************/
+
+function translatePigLatin3(str) {
+  // Function check() would check for the index of first letter of str to be in the array of vowels ['a','i','u','e','o'] 
+  function check(indice) {
+      return ['a','i','u','e','o'].indexOf(str.charAt(indice)) === -1 ? check(indice + 1) : indice; // In case of consonants, check() calls itself on the next characters until finding the first vowel.
+  }
+  return str.slice(check(0)).concat((check(0) === 0 ? 'w' : str.substr(0, check(0))) + 'ay');
+}
+
+
 
 // Retrieved from
 // https://guide.freecodecamp.org/certifications/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/pig-latin/
